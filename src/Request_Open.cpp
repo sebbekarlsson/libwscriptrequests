@@ -5,14 +5,14 @@
 
 Request_Open::Request_Open(std::string name, Request* obj) : AST_BuiltinFunctionDefinition(name) {
     this->obj = obj;
+    this->expected_args.push_back(TokenType::String);
+    this->expected_args.push_back(TokenType::String);
+    this->expected_args.push_back(TokenType::Integer);
 };
 
 Request_Open::~Request_Open() {};
 
 AST* Request_Open::call(std::vector<AST*> args, Interpreter* interpreter) {
-    if (args.size() < 3)
-        interpreter->error("Open requires 3 arguments");
-
     anything _request_method = interpreter->visit(args[0]);
     anything _url = interpreter->visit(args[1]);
     anything _async = interpreter->visit(args[2]);

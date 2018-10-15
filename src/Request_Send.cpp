@@ -12,6 +12,7 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *use
 
 Request_Send::Request_Send(std::string name, Request* obj) : AST_BuiltinFunctionDefinition(name) {
     this->obj = obj;
+    this->unlimited_args = true;
 };
 
 Request_Send::~Request_Send() {};
