@@ -37,5 +37,6 @@ libwscriptrequests.so: $(OBJECTS)
 clean:
 	-rm *.out
 	-rm *.o
+	-rm *.so
 	-rm src/*.o
 	-rm src/*/*.o
