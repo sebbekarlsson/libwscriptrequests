@@ -34,6 +34,14 @@ $(info $(OBJECTS_NO_MAIN))
 libwscriptrequests.so: $(OBJECTS)
 	$(LINK.c) -shared $^ -o $@ -fPIC -lwscript -lcurl -Wl,--no-as-needed
 
+install:
+	-rm /usr/local/lib/libwscriptrequests.*
+	-rm -rf /usr/local/include/libwscriptrequests
+	make
+	make libwscriptrequests.so
+	cp -r src/includes /usr/local/include/wscriptrequests
+	cp libwscriptrequests.so /usr/local/lib/libwscriptrequests.so
+
 clean:
 	-rm *.out
 	-rm *.o
