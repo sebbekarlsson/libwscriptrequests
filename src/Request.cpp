@@ -10,19 +10,19 @@
 
 Scope* global_scope = new Scope("global");
 Request::Request(Token* token) : AST_ObjectCustom(token) {
-    Request_Open* o = new Request_Open("Open", this);
+    Request_Open* o = new Request_Open("open", this);
     this->private_scope->define_builtin_function(o);
 
-    Request_Send* s = new Request_Send("Send", this);
+    Request_Send* s = new Request_Send("send", this);
     this->private_scope->define_builtin_function(s);
 };
-Request::~Request() {};
 
+Request::~Request() {};
 
 extern "C" AST_ObjectCustom* create() {
     return new Request(nullptr);
-}
+};
 
 extern "C" void destroy(AST_ObjectCustom* p) {
     //delete p;
-}
+};

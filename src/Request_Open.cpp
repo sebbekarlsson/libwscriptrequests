@@ -1,6 +1,8 @@
 #include "includes/Request_Open.hpp"
 #include <string>
 #include <wscript/AST/AST_NoOp.hpp>
+#include <wscript/AST/AST_VarDecl.hpp>
+#include <iostream>
 
 
 Request_Open::Request_Open(std::string name, Request* obj) : AST_BuiltinFunctionDefinition(name) {

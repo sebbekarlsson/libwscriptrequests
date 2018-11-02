@@ -40,7 +40,7 @@ AST* Request_Send::call(std::vector<AST*> args, Interpreter* interpreter) {
         /* always cleanup */ 
         curl_easy_cleanup(curl);
 
-        this->obj->get_private_scope()->set_variable("responseText", readBuffer);
+        this->obj->get_private_scope()->set_variable("responsetext", readBuffer);
     }
 
     return new AST_NoOp();
